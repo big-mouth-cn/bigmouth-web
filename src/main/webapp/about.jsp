@@ -4,7 +4,14 @@
 <html lang="zh-cn">
 <head>
 
-<%@ include file="/commons/metalibs.jsp"%>
+	<title>关于 - 胡大嘴的小站</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="它是使用Java语言开发的网站，采用Tomcat部署，阿里云服务器，万网域名。程序后台采用开源框架Spring、MyBatis和Struts2，并且使用了Memcached缓存，搜索引擎使用的是开源框架Luence。">
+	<meta name="keyworkds" content="胡大嘴,大嘴,Allen Hu,Big mouth,Big-mouth,Java,Memcached,ZooKeeper,MongoDB,博客,摄影,书法,烹饪">
+	<meta name="author" content="Allen Hu, 胡大嘴">
+	<%@ include file="/commons/metalibs.jsp"%>
 </head>
 <body>
 

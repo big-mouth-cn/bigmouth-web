@@ -52,8 +52,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.bigmouth</groupId>
-			<artifactId>ticket4j</artifactId>
-			<version>1.0.2</version>
+			<artifactId>bigmouth-ticket4j</artifactId>
+			<version>1.0.5</version>
 		</dependency>
 	</dependencies>
 	

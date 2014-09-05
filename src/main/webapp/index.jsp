@@ -3,9 +3,20 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-
-<%@ include file="/commons/metalibs.jsp"%>
-<meta property="qc:admins" content="17503465776217557540636" />
+	<title>胡大嘴的小站</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="胡大嘴的小站（www.big-mouth.cn）是一个个人综合网站，包含各类技术文章、摄影等方面内容。">
+	<meta name="keyworkds" content="胡大嘴,大嘴,Allen Hu,Big mouth,Big-mouth,Java,Memcached,ZooKeeper,MongoDB,博客,摄影,书法,烹饪">
+	<meta name="author" content="Allen Hu, 胡大嘴">
+	<%@ include file="/commons/metalibs.jsp"%>
+	<style type="text/css">
+	.carousel-caption {
+		text-shadow: 0px 0px 10px #000;
+	}
+	</style>
+	<meta property="qc:admins" content="17503465776217557540636" />
 </head>
 <body>
 
@@ -17,11 +28,21 @@
 	      <!-- Indicators -->
 	      <ol class="carousel-indicators">
 	        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-	        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-	        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+	        <li data-target="#myCarousel" data-slide-to="1"></li>
+	        <li data-target="#myCarousel" data-slide-to="2"></li>
+	        <li data-target="#myCarousel" data-slide-to="3"></li>
 	      </ol>
 	      <div class="carousel-inner">
 	        <div class="item active">
+	          <img src="${ctx}/images/STJ_1920x600.jpg">
+	          <div class="container">
+	            <div class="carousel-caption">
+	              <h1>姑苏第一名街</h1>
+	              <p>在苏州众多的街巷之中，名胜山塘街，被称誉为“姑苏第一名街”。其原因：一是山塘街是一条有1100多年历史的古街；二是它的格局具有最能代表苏州街巷的特点；三是它与许多名人、名事相关。</p>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="item">
 	          <img src="${ctx}/images/1.jpg">
 	          <div class="container">
 	            <div class="carousel-caption">

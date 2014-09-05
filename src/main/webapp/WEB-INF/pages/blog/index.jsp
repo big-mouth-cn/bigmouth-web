@@ -4,7 +4,19 @@
 <html lang="zh-cn">
 <head>
 
-<%@ include file="/commons/metalibs.jsp"%>
+	<s:if test="tagName == null">
+	<title>博客 - 胡大嘴的小站</title>
+	</s:if>
+	<s:else>
+	<title>${tagName } - 胡大嘴的小站</title>
+	</s:else>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="胡大嘴的小站（www.big-mouth.cn）是一个个人综合网站，包含各类技术文章、摄影等方面内容。">
+	<meta name="keyworkds" content="胡大嘴,大嘴,Allen Hu,Big mouth,Big-mouth">
+	<meta name="author" content="Allen Hu, 胡大嘴">
+	<%@ include file="/commons/metalibs.jsp"%>
 
 <link type="text/css" rel="stylesheet" href="${ctx }/js/syntax/styles/shCoreEclipse.css"/>
 <script type="text/javascript" src="${ctx }/js/syntax/scripts/shCore.js"></script>

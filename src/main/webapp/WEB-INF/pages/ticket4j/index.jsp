@@ -4,7 +4,6 @@
 <html lang="zh-cn">
 <head>
 	<title>东皇钟 - 胡大嘴的小站</title>
-	<%@ page contentType="text/html; charset=UTF-8" language="java"%>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,9 +36,9 @@
 			<div class="mainbanner-inner container text-center">
 			<h1 class="mainbanner-title">&nbsp;&nbsp;回家，是我们共同的愿望！</h1>
 			<div class="mainbanner-action">
-				<a id="download" data-os="pc" class="btn-download-pc text-hide" href="http://pan.baidu.com/s/1pJjtgLX" target="_blank">立即下载东皇钟 1.0.3</a>
+				<a id="download" data-os="pc" class="btn-download-pc text-hide" href="http://yun.baidu.com/s/1c0w6Nc8" target="_blank">立即下载东皇钟 1.0.4</a>
 			</div>
-			<div class="mainbanner-intro"><span>最新版本：1.0.3 (2014-08-30)</span></div>
+			<div class="mainbanner-intro"><span>最新版本：1.0.4 (2014-09-03)</span></div>
 			<div class="text-center">
 				<div class="inline-block text-left github" style="height: 55px;">
 					<a href="https://github.com/big-mouth-cn/ticket4j" target="_blank">https://github.com/big-mouth-cn/ticket4j</a>
@@ -69,15 +68,27 @@
 			<h2 class="heading-second">更新日志</h2>
 			<div class="whiteboard">
 				<article class="changelog">
-					<h3 class="changelog-title"><span class="float-left">东皇钟 1.0.3<span class="font-normal font-italic color-red">(New)</span></span><span class="changelog-date">2014-08-30</span></h3>
+					<h3 class="changelog-title"><span class="float-left">东皇钟 1.0.4<span class="font-normal font-italic color-red">(New)</span></span><span class="changelog-date">2014-09-03</span></h3>
 					<div class="changelog-detail-outer">
 						<ol class="changelog-detail">
-							<li>新增：订票前检查乘车人身份是否满足购票条件，防止在订单提交后无法出票</li>
-							<li>新增：购票成功后保存订单信息到云端</li>
-							<li>优化：提升验证码识别准确率</li>
+							<li>新增：定时查票功能，可自由配置时间</li>
+							<li>新增：查票时支持动态切换DNS，可以选择速度优先和随机切换两种模式</li>
+							<li>优化：查票地址可设置多个，支持自动智能切换功能</li>
 						</ol>
 					</div>
 				</article>
+				<div class="changelog-older">
+					<article class="changelog">
+						<h3 class="changelog-title"><span class="float-left">东皇钟 1.0.3</span><span class="changelog-date">2014-08-30</span></h3>
+						<div class="changelog-detail-outer">
+							<ol class="changelog-detail">
+								<li>新增：订票前检查乘车人身份是否满足购票条件，防止在订单提交后无法出票</li>
+								<li>新增：购票成功后保存订单信息到云端</li>
+								<li>优化：提升验证码识别准确率</li>
+							</ol>
+						</div>
+					</article>
+				</div>
 				<div id="changelog-older">
 					<article class="changelog">
 						<h3 class="changelog-title"><span class="float-left">东皇钟 1.0.2</span><span class="changelog-date">2014-08-27</span></h3>
