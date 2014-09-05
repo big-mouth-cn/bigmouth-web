@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+	http://www.springframework.org/schema/jee 
+	http://www.springframework.org/schema/jee/spring-jee-3.0.xsd 
+	http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+	default-autowire="byName">
+	
+	<bean class="org.bigmouth.framework.core.SpringContextProperty">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath*:/application.properties</value>
+				<value>classpath*:/jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<context:annotation-config />
+	<context:component-scan base-package="org.bigmouth.web" />
+
+	<bean id="master_dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${master.ds.driverClassName}" />
+		<property name="url" value="${master.ds.url}" />
+		<property name="username" value="${master.ds.username}" />
+		<property name="password" value="${master.ds.password}" />
+	</bean>
+
+	<bean id="dataSource" class="org.bigmouth.framework.dao.MultiDataSource">
+		<property name="defaultDataSource" ref="master_dataSource" />
+	</bean>
+
+	<!-- MyBatis 配置加载与事务管理器   -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:mybatis.cfg.xml" />
+		<property name="mapperLocations" value="classpath:mybatis/*/*.mapper.xml" />
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED"
+				rollback-for="java.lang.RuntimeException" />
+			<tx:method name="get*" read-only="true" />
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="select*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="services"
+			expression="execution (* org.bigmouth.web.*.*.service.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="services" />
+	</aop:config>
+
+	<bean class="org.bigmouth.framework.core.SpringContextHolder" destroy-method="destroy" />
+	
+	<!-- 数据库分页方言-->
+	<bean id="PaggingDialectFactory" class="org.bigmouth.framework.dao.page.DefaultPaggingDialectFactory"/>
+	
+	<!-- Escape 方言 -->
+	<bean id="EscapeFactory" class="org.bigmouth.framework.dao.escape.DefaultEscapeFactory"></bean>
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	
+	<!-- Comment -->
+	
+	<bean id="commentDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<property name="mapperInterface" value="org.bigmouth.web.manager.comment.dao.CommentDao" />
+	</bean>
+	<bean id="commentService" class="org.bigmouth.web.manager.comment.service.CommentService">
+		<property name="commentDao" ref="commentDao" />
+	</bean>
+	
+	<bean id="reportService" class="org.bigmouth.web.view.ticket4j.service.ReportService" 
+		init-method="init">
+		<property name="tempDirectory" value="${temp.directory}" />
+	</bean>
+	<bean id="ticket4jService" class="org.bigmouth.web.view.ticket4j.service.Ticket4jService">
+		<property name="filePath" value="${ticket4j.file.path}" />
+	</bean>
+
+</beans>

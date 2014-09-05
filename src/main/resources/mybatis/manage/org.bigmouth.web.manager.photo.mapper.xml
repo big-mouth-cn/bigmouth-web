@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.bigmouth.web.manager.photo.dao.PhotoDao">
+	<resultMap type="org.bigmouth.web.manager.photo.entity.Photo" id="Photo">
+		<id column="id" property="id"/>
+		<result column="album_id" property="albumId"/>
+		<result column="title" property="title"/>
+		<result column="description" property="description"/>
+		<result column="photo_uri" property="photoUri"/>
+		<result column="camera_info" property="cameraInfo"/>
+		<result column="sequence" property="sequence"/>
+		<result column="thumbnail_uri" property="thumbnailUri"/>
+		<result column="thumbnail_width" property="thumbnailWidth"/>
+		<result column="thumbnail_height" property="thumbnailHeight"/>
+		<result column="create_time" property="createTime"/>
+	</resultMap>
+	
+	<select id="queryByAlbumId" resultMap="Photo" parameterType="long">
+		SELECT id, album_id, title, description, photo_uri, camera_info, sequence, create_time, thumbnail_uri, thumbnail_width, thumbnail_height
+  		FROM tbl_web_photo WHERE album_id = #{albumId} 
+  		ORDER BY sequence, id DESC
+	</select>
+	
+	<select id="query" resultMap="Photo" parameterType="long">
+		SELECT id, album_id, title, description, photo_uri, camera_info, sequence, create_time, thumbnail_uri, thumbnail_width, thumbnail_height
+  		FROM tbl_web_photo WHERE id = #{id} 
+	</select>
+	
+	<insert id="insert" parameterType="org.bigmouth.web.manager.photo.entity.Photo"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO tbl_web_photo(album_id, title, description, photo_uri, camera_info, sequence, create_time, thumbnail_uri, thumbnail_width, thumbnail_height)
+    	VALUES (#{albumId}, #{title}, #{description}, #{photoUri}, #{cameraInfo}, #{sequence}, #{createTime}, #{thumbnailUri}, #{thumbnailWidth}, #{thumbnailHeight})
+	</insert>
+	
+	<delete id="delete" parameterType="long">
+		DELETE FROM tbl_web_photo WHERE id = #{id}
+	</delete>
+	
+	<update id="update" parameterType="org.bigmouth.web.manager.photo.entity.Photo">
+		UPDATE tbl_web_photo
+		   SET 
+		   album_id=#{albumId}, title=#{title}, description=#{description}, 
+		   photo_uri=#{photoUri}, camera_info=#{cameraInfo}, sequence = #{sequence},
+		   thumbnail_uri=#{thumbnailUri}, thumbnail_width=#{thumbnailWidth}, thumbnail_height=#{thumbnailHeight}
+		 WHERE id = #{id}
+	</update>
+	
+	<select id="getCount" parameterType="long" resultType="int">
+		SELECT count(id) FROM tbl_web_photo WHERE album_id = #{albumId}
+	</select>
+	
+	<select id="queryPre" parameterType="map" resultMap="Photo">
+		SELECT * FROM (
+		SELECT id, album_id, title, description, photo_uri, thumbnail_uri, camera_info, 
+		       sequence, thumbnail_width, thumbnail_height, create_time
+		  FROM tbl_web_photo WHERE album_id = #{albumId} AND id &gt; #{id} ORDER BY sequence, id DESC
+		) A ORDER BY sequence DESC, id LIMIT 1
+	</select>
+	
+	<select id="queryCurrentIndex" resultType="int">
+		SELECT count(*) FROM (
+		SELECT id
+		  FROM tbl_web_photo WHERE album_id = #{albumId} AND id &gt; #{id} ORDER BY sequence, id DESC
+		) A 
+	</select>
+	
+	<select id="queryNext" parameterType="map" resultMap="Photo">
+		SELECT id, album_id, title, description, photo_uri, thumbnail_uri, camera_info, 
+	       sequence, thumbnail_width, thumbnail_height, create_time
+	  	FROM tbl_web_photo WHERE album_id = #{albumId} AND id &lt; #{id} ORDER BY sequence, id DESC LIMIT 1
+	</select>
+</mapper>

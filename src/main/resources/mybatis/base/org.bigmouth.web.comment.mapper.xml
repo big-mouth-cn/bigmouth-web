@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.bigmouth.web.manager.comment.dao.CommentDao">
+
+	<resultMap type="org.bigmouth.web.manager.comment.entity.Comment" id="resultMap">
+		<id column="id" property="id"/>
+		<result column="target_id" property="targetId"/>
+		<result column="target_type" property="targetType"/>
+		<result column="name" property="name"/>
+		<result column="content" property="content"/>
+		<result column="parent_id" property="parentId"/>
+		<result column="qq" property="qq"/>
+		<result column="email" property="email"/>
+		<result column="head_url" property="headUrl"/>
+		<result column="create_time" property="createTime"/>
+	</resultMap>
+	
+	<insert id="insert" parameterType="org.bigmouth.web.manager.comment.entity.Comment"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO tbl_web_comment(target_id, target_type, name, content, parent_id, qq, email, head_url, create_time)
+    	VALUES (#{targetId}, #{targetType}, #{name}, #{content}, #{parentId}, #{qq}, #{email}, #{headUrl}, #{createTime})
+	</insert>
+	
+	<delete id="delete" parameterType="long">
+		DELETE FROM tbl_web_comment WHERE id = #{id}
+	</delete>
+	
+	<select id="queryAll" resultMap="resultMap" parameterType="org.bigmouth.web.manager.comment.entity.Comment">
+		SELECT id, target_id, target_type, name, content, parent_id, qq, create_time, email, head_url
+  		FROM tbl_web_comment
+  		<where>
+  			1 = 1
+  			<if test="targetId != null">AND target_id = #{targetId}</if>
+  			<if test="targetType != null">AND target_type = #{targetType}</if>
+  			<if test="name != null">AND name = #{name}</if>
+  			<if test="parentId != null">AND parent_id = #{parentId}</if>
+  		</where>
+  		ORDER BY create_time
+	</select>
+
+</mapper>

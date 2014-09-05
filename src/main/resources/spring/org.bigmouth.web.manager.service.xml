@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<!-- File Service -->
+	<bean id="fileService" class="org.bigmouth.web.manager.master.service.FileService"></bean>
+
+	<!-- Admin -->
+	<bean id="adminDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<property name="mapperInterface" value="org.bigmouth.web.manager.master.dao.AdminDao" />
+	</bean>
+	
+	<bean id="adminService" class="org.bigmouth.web.manager.master.service.AdminService">
+		<property name="adminDao" ref="adminDao" />
+	</bean>
+	
+	<!-- BlogTag -->
+	<bean id="blogTagDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<property name="mapperInterface" value="org.bigmouth.web.manager.blog.dao.BlogTagDao" />
+	</bean>
+	<bean id="blogTagService" class="org.bigmouth.web.manager.blog.service.BlogTagService">
+		<property name="blogTagDao" ref="blogTagDao" />
+	</bean>
+	
+	<!-- BlogTagRef -->
+	<bean id="blogTagRefDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<property name="mapperInterface" value="org.bigmouth.web.manager.blog.dao.BlogTagRefDao" />
+	</bean>
+	<bean id="blogTagRefService" class="org.bigmouth.web.manager.blog.service.BlogTagRefService">
+		<property name="blogTagRefDao" ref="blogTagRefDao" />
+	</bean>
+	
+	<!-- BlogRecommend -->
+	<bean id="blogRecommendDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<property name="mapperInterface" value="org.bigmouth.web.manager.blog.dao.BlogRecommendDao" />
+	</bean>
+	<bean id="blogRecommendService" class="org.bigmouth.web.manager.blog.service.BlogRecommendService">
+		<property name="blogRecommendDao" ref="blogRecommendDao" />
+	</bean>
+	
+	<!-- Blog -->
+	<bean id="blogDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<property name="mapperInterface" value="org.bigmouth.web.manager.blog.dao.BlogDao" />
+	</bean>
+	<bean id="blogService" class="org.bigmouth.web.manager.blog.service.BlogService">
+		<property name="blogDao" ref="blogDao" />
+		<property name="blogTagService" ref="blogTagService" />
+		<property name="blogTagRefService" ref="blogTagRefService" />
+		<property name="blogRecommendService" ref="blogRecommendService" />
+	</bean>
+	
+	<!-- Album -->
+	<bean id="albumDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<property name="mapperInterface" value="org.bigmouth.web.manager.album.dao.AlbumDao" />
+	</bean>
+	<bean id="albumService" class="org.bigmouth.web.manager.album.service.AlbumService">
+		<property name="albumDao" ref="albumDao" />
+		<property name="photoService" ref="photoService" />
+	</bean>
+	
+	<!-- Photo -->
+	<bean id="photoDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<property name="mapperInterface" value="org.bigmouth.web.manager.photo.dao.PhotoDao" />
+	</bean>
+	<bean id="photoService" class="org.bigmouth.web.manager.photo.service.PhotoService">
+		<property name="photoDao" ref="photoDao" />
+		<property name="fileService" ref="fileService" />
+	</bean>
+</beans>

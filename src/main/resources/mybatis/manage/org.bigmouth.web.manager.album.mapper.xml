@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.bigmouth.web.manager.album.dao.AlbumDao">
+	<resultMap type="org.bigmouth.web.manager.album.entity.Album" id="Album">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="tile_img" property="tileImg"/>
+		<result column="description" property="description"/>
+		<result column="create_time" property="createTime"/>
+	</resultMap>
+	
+	<select id="queryAll" resultMap="Album">
+	SELECT id, name, tile_img, description, create_time
+  	FROM tbl_web_album ORDER BY create_time DESC
+	</select>
+	
+	<select id="query" resultMap="Album" parameterType="long">
+	SELECT id, name, tile_img, description, create_time
+  	FROM tbl_web_album WHERE id = #{id}
+	</select>
+	
+	<insert id="insert" parameterType="org.bigmouth.web.manager.album.entity.Album">
+	INSERT INTO tbl_web_album(name, tile_img, description, create_time)
+    VALUES (#{name}, #{tileImg}, #{description}, #{createTime})
+	</insert>
+	
+	<delete id="delete" parameterType="long">
+	DELETE FROM tbl_web_album WHERE id = #{id}
+	</delete>
+	
+	<update id="update" parameterType="org.bigmouth.web.manager.album.entity.Album">
+	UPDATE tbl_web_album
+   	SET name=#{name}, tile_img=#{tileImg}, description=#{description}
+ 	WHERE id = #{id}
+	</update>
+	
+	<update id="updateTileImg" parameterType="map">
+	UPDATE tbl_web_album
+	   SET tile_img=#{0}
+	 WHERE id = #{1}
+	</update>
+	
+</mapper>

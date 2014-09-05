@@ -1,0 +1,18 @@
+.navbar-static-top {
+  margin-bottom: 0px;
+}
+
+.navbar .navbar-brand {
+	overflow: hidden;
+	width: 100px;
+	background: url('../images/logo/Logo_NoneFont_White_Cat.png') no-repeat left bottom;
+	background-size: 64px;
+	background-position: center;
+	text-indent: -9000px;
+}
+.carousel {
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+.carousel-inner > .item > img {
+	min-width: 100%;
+}

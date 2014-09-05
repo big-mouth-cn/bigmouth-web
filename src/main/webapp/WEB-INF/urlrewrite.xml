@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.0//EN"
+    "http://tuckey.org/res/dtds/urlrewrite3.0.dtd">
+<urlrewrite>
+	<rule>
+		<from>/blog/([0-9]+).html</from>
+		<to>/blog!thread.shtml?id=$1</to>
+	</rule>
+	<rule>
+		<from>/album/([0-9]+).html</from>
+		<to>/p.shtml?albumId=$1</to>
+	</rule>
+	<rule>
+		<from>/photo/([0-9]+)/([0-9]+).html</from>
+		<to>/p!thread.shtml?albumId=$1&amp;id=$2</to>
+	</rule>
+	<rule>
+		<from>^/tag/(.*)$</from>
+		<to>/blog.shtml?tagName=$1</to>
+	</rule>
+	<rule>
+		<from>^/blog$</from>
+		<to>/blog.shtml</to>
+	</rule>
+	<rule>
+		<from>^/album$</from>
+		<to>/album.shtml</to>
+	</rule>
+	<rule>
+		<from>^/contact$</from>
+		<to>/contact.jsp</to>
+	</rule>
+	<rule>
+		<from>^/about$</from>
+		<to>/about.jsp</to>
+	</rule>
+	<rule>
+		<from>^/resume$</from>
+		<to>/resume.jsp</to>
+	</rule>
+	<rule>
+		<from>^/ticket4j$</from>
+		<to>/ticket4j.shtml</to>
+	</rule>
+	<rule>
+		<from>^/ticket4j/download.html</from>
+		<to>/ticket4j!download.shtml</to>
+	</rule>
+	<rule>
+		<from>^/m$</from>
+		<to>/base/auth.shtml</to>
+	</rule>
+</urlrewrite>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.bigmouth.web.manager.blog.dao.BlogRecommendDao">
+	<resultMap type="org.bigmouth.web.manager.blog.entity.BlogRecommend"
+		id="resultMap">
+		<id column="id" property="id" />
+		<result column="name" property="blogId" />
+		<result column="blog_id" property="sequence" />
+	</resultMap>
+
+	<select id="queryUnique" resultType="org.bigmouth.web.manager.blog.entity.BlogRecommend"
+		parameterType="map">
+		SELECT id, blog_id, sequence
+		FROM tbl_web_blog_recommend
+		WHERE
+		${columnName} = #{1}
+	</select>
+
+	<insert id="insert" parameterType="org.bigmouth.web.manager.blog.entity.BlogRecommend">
+		INSERT INTO
+		tbl_web_blog_recommend(blog_id, sequence)
+		VALUES (#{blogId}, #{sequence})
+	</insert>
+
+	<delete id="deleteByBlogId" parameterType="long">
+		DELETE FROM
+		tbl_web_blog_recommend WHERE blog_id = #{blogId}
+	</delete>
+</mapper>

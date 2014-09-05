@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.bigmouth.web.manager.blog.dao.BlogDao">
+	<resultMap id="BaseResultMap" type="org.bigmouth.web.manager.blog.entity.Blog">
+		<id column="id" property="id" />
+		<result column="title" property="title" />
+		<result column="content" property="content" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+
+	<select id="queryAll" resultMap="BaseResultMap">
+		SELECT id, title, content,
+		create_time
+		FROM tbl_web_blog ORDER BY id DESC
+  	</select>
+  	
+  	<select id="queryRecommend" resultMap="BaseResultMap">
+		SELECT b.id, b.title, b.content, b.create_time, r.id, r.sequence
+		  FROM tbl_web_blog b, tbl_web_blog_recommend r 
+		  WHERE b.id = r.blog_id
+		ORDER BY sequence LIMIT 10
+  	</select>
+  	
+  	<select id="queryByTag" resultMap="BaseResultMap">
+  		SELECT b.id, b.title, b.content, b.create_time
+		  FROM tbl_web_blog b, tbl_web_blog_tag t, tbl_web_blog_tag_ref r 
+		WHERE b.id = r.blog_id AND r.tag_id = t.id AND t.name = #{tagName} 
+		ORDER BY id DESC
+  	</select>
+
+	<insert id="insert" parameterType="org.bigmouth.web.manager.blog.entity.Blog"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO tbl_web_blog(title,
+		content, create_time)
+		VALUES (#{title}, #{content}, now());
+  	</insert>
+
+	<update id="update" parameterType="org.bigmouth.web.manager.blog.entity.Blog">
+		UPDATE tbl_web_blog
+		SET title=#{title}, content=#{content}
+		WHERE id = #{id}
+  	</update>
+
+	<update id="delete" parameterType="long">
+		DELETE FROM tbl_web_blog
+		WHERE id = #{id}
+  	</update>
+  	
+  	<select id="query" resultMap="BaseResultMap" parameterType="long">
+  		SELECT id, title, content,
+		create_time
+		FROM tbl_web_blog WHERE id = #{id}
+  	</select>
+  	
+  	<select id="queryPre" parameterType="map" resultMap="BaseResultMap">
+  		SELECT * FROM (
+		SELECT id, title, content, create_time
+		  FROM tbl_web_blog WHERE id &gt; ${id} ORDER BY id DESC
+		) A ORDER BY id LIMIT 1
+  	</select>
+  	
+  	<select id="queryNext" parameterType="map" resultMap="BaseResultMap">
+  		SELECT id, title, content, create_time
+  		FROM tbl_web_blog WHERE id &lt; ${id} ORDER BY id DESC LIMIT 1
+  	</select>
+</mapper>

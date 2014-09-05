@@ -1,0 +1,188 @@
+body {
+background: none;
+}
+footer.footer {
+padding-top: 32px;
+line-height: 2;
+font-size: 12px;
+text-align: center;
+color: #CCC;
+background-color: #464646;
+border-top: 1px solid #383a3d;
+}
+footer.footer a {
+color: #CCC;
+}
+.mainbanner {
+background: #292929 url(../images/ticket4j/mainbanner_bg.png) repeat 0 0;
+background-image: -webkit-image-set(url(../images/ticket4j/mainbanner_bg.png) 1x, url(../images/ticket4j/mainbanner_bg_2x.png) 2x);
+border-bottom: 1px solid #c5c5c5;
+}
+.mainbanner-title {
+margin-top: 50px;
+font-size: 40px;
+font-weight: normal;
+color: #fff;
+transition: all 0.3s;
+}
+.mainbanner-action {
+margin-top: 50px;
+margin-bottom: 16px;
+}
+.mainbanner-inner {
+background-image: url(../images/ticket4j/mainbanner_content.png);
+_background-image: url(../images/ticket4j/mainbanner_content_ie6.png);
+}
+.text-center {
+text-align: center;
+}
+.mainbanner-inner {
+padding-bottom: 260px;
+background-repeat: no-repeat;
+background-position: center bottom;
+}
+.btn-download-pc:hover, .btn-download-pc:focus {
+background-position: 0 -64px;
+}
+a:hover {
+text-decoration: underline;
+}
+.text-hide {
+text-indent: -9999em;
+_overflow: hidden;
+}
+.mainbanner-intro {
+margin-bottom: 30px;
+font-size: 12px;
+color: #999;
+}
+.btn-download-pc, .btn-download-applynew, .btn-download-mac, .btn-download-app {
+display: inline-block;
+width: 171px;
+height: 54px;
+background-image: url(../images/ticket4j/btn_applications_0121.png);
+_background-image: url(../images/ticket4j/btn_applications_ie6_0121.png);
+background-image: -webkit-image-set(url(../images/ticket4j/btn_applications_0121.png) 1x, url(../images/ticket4j/btn_applications_2x_0121.png) 2x);
+background-repeat: no-repeat;
+outline: none;
+}
+.btn-download-pc:active {
+background-position: 0 -128px;
+}
+a {
+color: #1e5494;
+text-decoration: none;
+}
+.inline-block {
+display: inline-block;
+}
+.text-left {
+text-align: left;
+}
+
+
+
+
+.showcase-list {
+margin-top: 40px;
+}
+.heading-second {
+margin-bottom: 1em;
+font-size: 24px;
+font-weight: normal;
+padding: 0px 40px;
+}
+ul, ol, fieldset {
+margin: 0;
+padding: 0;
+}
+.showcase-easy {
+background-image: url(../images/ticket4j/feature_easy.png);
+}
+.showcase-item {
+display: inline-block;
+width: 300px;
+margin-left: 40px;
+margin-bottom: 60px;
+padding-top: 240px;
+background-repeat: no-repeat;
+vertical-align: top;
+font-size: 14px;
+}
+.showcase-github {
+background-image: url(../images/ticket4j/feature_performance.png);
+}
+.showcase-recogn {
+background-image: url(../images/ticket4j/feature_notepad.png);
+}
+.showcase-title {
+display: block;
+font-size: 18px;
+font-weight: normal;
+color: #000;
+_vertical-align: baseline;
+}
+.showcase-intro {
+display: block;
+margin-top: 18px;
+color: #575757;
+font-size: 12px;
+_vertical-align: baseline;
+}
+
+.whiteboard {
+position: relative;
+background-color: #fff;
+border: 1px solid #e1e1e1;
+margin: 0px 40px;
+}
+.changelog {
+padding: .7em 2em;
+border-bottom: 1px solid #ebebeb;
+overflow: hidden;
+-webkit-transition: background-color .15s ease-out;
+-moz-transition: background-color .15s ease-out;
+transition: background-color .15s ease-out;
+}
+.changelog-title {
+font-size: 16px;
+text-align: right;
+_zoom: 1;
+overflow: hidden;
+}
+.changelog-detail {
+margin-top: 10px;
+margin-left: 2em;
+line-height: 2;
+list-style-position: outside;
+}
+.float-left {
+float: left;
+}
+.color-red {
+color: #c00;
+}
+.font-normal {
+font-weight: normal;
+font-style: normal;
+}
+.font-italic {
+font-style: italic;
+}
+.changelog-date {
+margin-right: 4px;
+font-size: 14px;
+font-weight: normal;
+font-style: italic;
+color: #999;
+}
+.github {
+height: 55px;
+background: url(../images/ticket4j/github-white.png) no-repeat center left;
+line-height: 55px;
+padding-left: 36px;
+font-size: 12px;
+}
+.github a {
+color: #999;
+}
