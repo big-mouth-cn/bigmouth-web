@@ -186,3 +186,6 @@ font-size: 12px;
 .github a {
 color: #999;
 }
+.special:LINK, .special:VISITED {
+	color: rgb(218, 86, 86);
+}
