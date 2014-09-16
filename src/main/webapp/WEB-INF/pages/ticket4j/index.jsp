@@ -24,9 +24,9 @@
 			<div class="mainbanner-inner container text-center">
 				<h1 class="mainbanner-title">&nbsp;&nbsp;回家，是我们共同的愿望！</h1>
 				<div class="mainbanner-action">
-					<a id="download" data-os="pc" class="btn-download-pc text-hide" href="http://pan.baidu.com/s/1dDktElb" target="_blank">立即下载东皇钟 1.0.6</a>
+					<a id="download" data-os="pc" class="btn-download-pc text-hide" href="http://pan.baidu.com/s/1hq460lu" target="_blank">立即下载东皇钟 1.0.8</a>
 				</div>
-				<div class="mainbanner-intro"><span>最新版本：1.0.7 (2014-09-12)</span>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a id="btnConfigureBuilder" href="javascript:;" data-toggle="modal" data-target="#myModal" class="special" title="通过该工具可以方便、快速地生成订票配置单，让小白订票更轻松。">订票配置单生成工具</a></div>
+				<div class="mainbanner-intro"><span>最新版本：1.0.8 (2014-09-15)</span></div>
 				<div class="text-center">
 					<div class="inline-block text-left github" style="height: 55px;">
 						<a href="https://github.com/big-mouth-cn/ticket4j" target="_blank">https://github.com/big-mouth-cn/ticket4j</a>
@@ -57,14 +57,25 @@
 			<h2 class="heading-second">更新日志</h2>
 			<div class="whiteboard">
 				<article class="changelog">
-					<h3 class="changelog-title"><span class="float-left">东皇钟 1.0.7<span class="font-normal font-italic color-red">(New)</span></span><span class="changelog-date">2014-09-12</span></h3>
+					<h3 class="changelog-title"><span class="float-left">东皇钟 1.0.8<span class="font-normal font-italic color-red">(New)</span></span><span class="changelog-date">2014-09-15</span></h3>
 					<div class="changelog-detail-outer">
 						<ol class="changelog-detail">
-							<li>优化：购票时遇到网络等各种因素造成当前请求失败后不会再受影响</li>
-							<li>修复：误以为官方更换了查票地址的问题</li>
+							<li>修复：可能会出现一直正在预订某趟车次的问题</li>
+							<li>修复：容易出现非法请求的问题</li>
 						</ol>
 					</div>
 				</article>
+				<div class="changelog-older">
+					<article class="changelog">
+						<h3 class="changelog-title"><span class="float-left">东皇钟 1.0.7</span><span class="changelog-date">2014-09-12</span></h3>
+						<div class="changelog-detail-outer">
+							<ol class="changelog-detail">
+								<li>优化：购票时遇到网络等各种因素造成当前请求失败后不会再受影响</li>
+								<li>修复：误以为官方更换了查票地址的问题</li>
+							</ol>
+						</div>
+					</article>
+				</div>
 				<div class="changelog-older">
 					<article class="changelog">
 						<h3 class="changelog-title"><span class="float-left">东皇钟 1.0.6</span><span class="changelog-date">2014-09-10</span></h3>
@@ -152,124 +163,6 @@
 			</div>
 		</section>
 
-		<!-- Tools -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		        <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-cog"></span> 订票配置单生成工具</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<div>敬请期待……</div>
-		      	<%--
-		      	<div>通过该工具可以方便、快速地生成订票配置单，让小白订票更轻松。</div>
-		      	<hr>
-		      	<div style="padding: 0px 20px;">
-			        <form class="form-horizontal" role="form">
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label">登录名</label>
-					    <div class="col-sm-9">
-					      <input class="form-control" id="username" placeholder="12306登录名">
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label">登录密码</label>
-					    <div class="col-sm-9">
-					      <input type="password" class="form-control" id="password" placeholder="12306登录密码">
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label">乘车人身份信息</label>
-					    <div class="col-sm-9">
-					      
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label">席别</label>
-					    <div class="col-sm-9">
-					      
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label">乘车日期</label>
-					    <div class="col-sm-9">
-					      
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label">出发站</label>
-					    <div class="col-sm-9">
-					      
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label">到达站</label>
-					    <div class="col-sm-9">
-					      
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label">车次白名单</label>
-					    <div class="col-sm-9">
-					      
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label">车次黑名单</label>
-					    <div class="col-sm-9">
-					      
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label">查票间隔时间</label>
-					    <div class="col-sm-9">
-					      
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label class="col-sm-3 control-label">定时查票</label>
-					    <div class="col-sm-9">
-					      
-					    </div>
-					  </div>
-					  <div class="form-group">
-					  	<label class="col-sm-3 control-label">DNS切换模式</label>
-					    <div class="col-sm-9">
-					        <label class="radio-inline">
-							  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="RANDOM" checked="checked"> 随机切换
-							</label>
-							<label class="radio-inline">
-							  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="FAST"> 速度优先
-							</label>
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <div class="col-sm-offset-3 col-sm-9">
-					      <div class="checkbox">
-					        <label>
-					          <input type="checkbox" checked="checked"> 使用验证码自动识别功能
-					        </label>
-					      </div>
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <div class="col-sm-offset-3 col-sm-9">
-					      <div class="checkbox">
-					        <label>
-					          <input type="checkbox"> 所有的请求我都需要切换DNS
-					        </label>
-					      </div>
-					    </div>
-					  </div>
-					</form>
-				</div>
-				 --%>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-		
 	<%@ include file="/commons/footer.jsp"%>
 </body>
 </html>

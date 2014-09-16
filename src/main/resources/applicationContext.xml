@@ -28,6 +28,8 @@
 			</list>
 		</property>
 	</bean>
+	
+	<import resource="./applicationContext-email.xml"/>
 
 	<context:annotation-config />
 	<context:component-scan base-package="org.bigmouth.web" />

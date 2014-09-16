@@ -53,7 +53,7 @@
 		<dependency>
 			<groupId>org.bigmouth</groupId>
 			<artifactId>bigmouth-ticket4j</artifactId>
-			<version>1.0.5</version>
+			<version>1.0.4</version>
 		</dependency>
 	</dependencies>
 	

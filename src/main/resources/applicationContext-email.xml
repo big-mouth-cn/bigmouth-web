@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	
+	<bean id="smtpConfig" class="org.bigmouth.framework.net.mail.core.SMTPConfig">
+		<constructor-arg value="${email.smtp.host}" />
+		<constructor-arg value="${email.smtp.port}" />
+		<constructor-arg value="${email.smtp.send}" />
+		<constructor-arg value="${email.smtp.password}" />
+		<constructor-arg value="${email.smtp.ssl}" />
+	</bean>
+	
+	<bean id="emailSenderService" class="org.bigmouth.web.view.email.service.EmailSenderService">
+		<property name="smtpConfig" ref="smtpConfig" />
+		<property name="subject" value="${email.subject}" />
+		<property name="from" value="${email.smtp.send}" />
+		<property name="display" value="${email.display}" />
+	</bean>
+</beans>
